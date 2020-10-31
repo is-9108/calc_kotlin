@@ -84,19 +84,40 @@ class MainActivity : AppCompatActivity() {
         val mul = findViewById<Button>(R.id.mulButton)
         val sub = findViewById<Button>(R.id.subButton)
         val add = findViewById<Button>(R.id.addButton)
+        val equal = findViewById<Button>(R.id.equal)
         val clear = findViewById<Button>(R.id.clearButton)
 
         add.setOnClickListener {
+            operation(ope, num,result.toDouble()).toString()
+            result = "0"
+            ope = "+"
+            text.setText(num.toString())
         }
         sub.setOnClickListener {
-
+            operation(ope, num,result.toDouble()).toString()
+            result = "0"
+            ope = "-"
+            text.setText(num.toString())
         }
         mul.setOnClickListener {
-
+            operation(ope, num,result.toDouble()).toString()
+            result = "0"
+            ope = "*"
+            text.setText(num.toString())
         }
         div.setOnClickListener {
-
+            operation(ope, num,result.toDouble()).toString()
+            result = "0"
+            ope = "/"
+            text.setText(num.toString())
         }
+        equal.setOnClickListener {
+            operation(ope, num,result.toDouble()).toString()
+            result = "0"
+            ope = "+"
+            text.setText(num.toString())
+        }
+
 
 
         clear.setOnClickListener {
@@ -105,14 +126,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun operation(ope: String , num1 :Double, num2: Double): Double{
-        var result :Double = 0.0
+    fun operation(ope: String , num1 :Double, num2: Double){
         when(ope){
-            "+" -> result = calc.add(num1, num2)
-            "-" -> result = calc.sub(num1, num2)
-            "*" -> result = calc.mul(num1, num2)
-            "/" -> result = calc.div(num1, num2)
+            "+" -> num = calc.add(num1, num2)
+            "-" -> num = calc.sub(num1, num2)
+            "*" -> num = calc.mul(num1, num2)
+            "/" -> num = calc.div(num1, num2)
         }
-        return result
     }
 }
