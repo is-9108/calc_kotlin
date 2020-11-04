@@ -8,6 +8,7 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     val calc = Calculation()
+    val changeBaseNumber = ChangeBaseNumber()
     val input = Input()
     var num: Double = 0.0
     var result: String = "0"
@@ -33,6 +34,11 @@ class MainActivity : AppCompatActivity() {
         val one = findViewById<Button>(R.id.one)
         val zero = findViewById<Button>(R.id.zero)
         val point = findViewById<Button>(R.id.point)
+
+        //change Base Number
+        val binary = findViewById<Button>(R.id.binary)
+        val octal = findViewById<Button>(R.id.octal)
+        val hexadecimal = findViewById<Button>(R.id.hexadecimal)
 
         nine.setOnClickListener {
             result = input.input("9",result)
@@ -123,6 +129,21 @@ class MainActivity : AppCompatActivity() {
         clear.setOnClickListener {
             result = "0"
             text.setText("0")
+            num = 0.0
+            ope = "+"
+        }
+
+        binary.setOnClickListener {
+            result = changeBaseNumber.binnary(text.text.toString())
+            text.setText(result)
+        }
+        octal.setOnClickListener {
+            result = changeBaseNumber.octal(text.text.toString())
+            text.setText(result)
+        }
+        hexadecimal.setOnClickListener {
+            result = changeBaseNumber.hexadecimal(text.text.toString())
+            text.setText(result)
         }
     }
 
